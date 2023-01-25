@@ -13,7 +13,7 @@ async def echo(message: types.Message):
                 await message.answer(f'Не матерись {username}\n'
                                      f'Сам ты {word}!')
 
-    if message.text.lower() == 'game':
+    if message.text.lower() == 'game':   # Игра работает для всех!
         a = ['⚽', '🎰', '🏀', '🎯', '🎳', '🎲']
         random = choice(a)
         await Bot.send_dice(message.chat.id, emoji=random)
