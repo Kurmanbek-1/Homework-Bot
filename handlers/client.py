@@ -1,9 +1,11 @@
+
 from config import Bot, Admins
 from aiogram import types, Dispatcher
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from keyboards.client_kb import start_markup
 
+# =====================================================================================================================
 
 async def start_handler(message: types.Message):
     await Bot.send_message(message.from_user.id,
@@ -44,10 +46,12 @@ async def images_mem(message: types.Message):
     photo = open('Media/Unknown.jpg', 'rb')
     await Bot.send_photo(message.from_user.id, photo=photo)
 
-
+# =====================================================================================================================
 
 def register_handler_client(dp: Dispatcher):
     dp.register_message_handler(start_handler, commands=['start'])
     dp.register_message_handler(info_handler, commands=['info'])
     dp.register_message_handler(quiz_1, commands=['quiz'])
     dp.register_message_handler(images_mem, commands=['mem'])
+
+# =====================================================================================================================

@@ -1,9 +1,9 @@
+# =====================================================================================================================
 from aiogram import types, Dispatcher
 from config import Bot
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-
-
+# =====================================================================================================================
 
 async def quiz_2(call: types.CallbackQuery):
     markup = InlineKeyboardMarkup()
@@ -85,8 +85,11 @@ async def quiz_4(call: types.CallbackQuery):
         open_period=60
     )
 
+# =====================================================================================================================
 
 def register_handlers_callback(dp: Dispatcher):
     dp.register_callback_query_handler(quiz_2, text='button_1')
     dp.register_callback_query_handler(quiz_3, text='button_2')
     dp.register_callback_query_handler(quiz_4, text='button_call_3')
+
+# =====================================================================================================================
