@@ -5,6 +5,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.dispatcher.filters import Text
 from config import Admins
 from keyboards.client_kb import cancel_markup, submit_markup, start_markup
+from database.Bot_db import sql_command_insert
 # =====================================================================================================================
 class fsmAdminMentor(StatesGroup):
     ID = State()
@@ -23,7 +24,6 @@ async def fsm_start(message: types.Message):
     else:
         await fsmAdminMentor.ID.set()
         await message.answer('ID ментора ?', reply_markup=cancel_markup)
-
 
 async def load_ID(message: types.Message, state: FSMContext):
     async with state.proxy() as FSMCONTEXT_PROXY_STORAGE:
@@ -57,8 +57,10 @@ async def load_group(message: types.Message, state: FSMContext):
     async with state.proxy() as FSMCONTEXT_PROXY_STORAGE:
         FSMCONTEXT_PROXY_STORAGE['Group'] = message.text
         await message.answer(f"Информация о менторе: \n\n"
-                             f"ID-ментора: {FSMCONTEXT_PROXY_STORAGE['ID']} \nИмя ментора: {FSMCONTEXT_PROXY_STORAGE['Name']} \n"
-                             f"Направление ментора: {FSMCONTEXT_PROXY_STORAGE['Direction']} \nВозраст ментора: {FSMCONTEXT_PROXY_STORAGE['Age']} \n"
+                             f"ID-ментора: {FSMCONTEXT_PROXY_STORAGE['ID']} \n"
+                             f"Имя ментора: {FSMCONTEXT_PROXY_STORAGE['Name']} \n"
+                             f"Направление ментора: {FSMCONTEXT_PROXY_STORAGE['Direction']} \n"
+                             f"Возраст ментора: {FSMCONTEXT_PROXY_STORAGE['Age']} \n"
                              f"Группа ментора: {FSMCONTEXT_PROXY_STORAGE['Group']} \n")
 
     await fsmAdminMentor.next()
@@ -68,7 +70,7 @@ async def load_group(message: types.Message, state: FSMContext):
 
 async def load_submit(message: types.Message, state: FSMContext):
     if message.text.lower() == 'да':
-        # Запись в базу данных
+        await sql_command_insert(state)
         await message.answer('Готово!', reply_markup=start_markup)
         await state.finish()
     elif message.text.lower() == 'нет':

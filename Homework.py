@@ -1,10 +1,17 @@
 # =====================================================================================================================
 from aiogram.utils import executor
 import logging
-from config import  dp
+from config import  dp, Bot, Admins
 from handlers import client, callback, extra, admin, fsmAdminMentor
+from database.Bot_db import sql_create, sql_command_insert
 
 # =====================================================================================================================
+async def on_startup(_):
+    await Bot.send_message(chat_id=Admins[0],
+                          text="Bot started!")
+    sql_create()
+
+
 
 client.register_handler_client(dp)
 callback.register_handlers_callback(dp)
