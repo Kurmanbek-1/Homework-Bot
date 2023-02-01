@@ -46,6 +46,11 @@ async def images_mem(message: types.Message):
     photo = open('Media/Unknown.jpg', 'rb')
     await Bot.send_photo(message.from_user.id, photo=photo)
 
+
+# async def get_random_user(message: types.Message):
+#     await sql_command_random(message)
+
+
 # =====================================================================================================================
 
 def register_handler_client(dp: Dispatcher):
@@ -53,5 +58,6 @@ def register_handler_client(dp: Dispatcher):
     dp.register_message_handler(info_handler, commands=['info'])
     dp.register_message_handler(quiz_1, commands=['quiz'])
     dp.register_message_handler(images_mem, commands=['mem'])
+    # dp.register_message_handler(get_random_user, commands=['get'])
 
 # =====================================================================================================================
