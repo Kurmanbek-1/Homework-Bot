@@ -56,4 +56,3 @@ async def sql_command_delete(user_id):
 
 def register_message_Bot_db(dp: Dispatcher):
     dp.register_message_handler(sql_command_random_mentors, commands=['get'])
-    # dp.register_message_handler(sql_command_all, commands=['all'])
