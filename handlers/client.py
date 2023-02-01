@@ -11,6 +11,18 @@ async def start_handler(message: types.Message):
     await Bot.send_message(message.from_user.id,
                            f"Hello {message.from_user.first_name}",
                            reply_markup=start_markup)
+    await Bot.send_message(message.from_user.id,
+                           f"Commands: \n"
+                           f"/start\n"
+                           f"/info\n"
+                           f"/quiz\n"
+                           f"/mem\n\n"
+                           f"Commands mentors: \n"
+                           f"/reg_mentor\n"
+                           f"/get\n"
+                           f"/all\n"
+                           f"/del\n"
+                           )
 
 
 async def info_handler(message: types.Message):
