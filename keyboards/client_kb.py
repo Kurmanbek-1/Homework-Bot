@@ -8,9 +8,6 @@ start_markup = ReplyKeyboardMarkup(
     row_width=3
 )
 
-
-
-
 # =====================================================================================================================
 start_button = KeyboardButton('/start')
 info_button = KeyboardButton('/info')
