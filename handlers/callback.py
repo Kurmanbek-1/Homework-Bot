@@ -54,7 +54,7 @@ async def quiz_3(call: types.CallbackQuery):
         options=answer,
         is_anonymous=True,
         type='quiz',
-        correct_option_id=2,
+        correct_option_id=[1,2,3],
         explanation="izi",
         open_period=60,
         reply_markup=markup

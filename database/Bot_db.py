@@ -4,12 +4,12 @@
 from aiogram import types, Dispatcher
 import random
 import sqlite3
+#=====================================================================================================================
 
-# from config import Bot
 db = sqlite3.connect("database/bot.sqlite3")
-
 cursor = db.cursor()
 
+#=====================================================================================================================
 
 def sql_create():
     global db, cursor
@@ -52,7 +52,10 @@ async def sql_command_delete(user_id):
     cursor.execute("DELETE FROM mentors WHERE id = ?", (user_id,))
     db.commit()
 
-
+#=====================================================================================================================
 
 def register_message_Bot_db(dp: Dispatcher):
     dp.register_message_handler(sql_command_random_mentors, commands=['get'])
+
+
+#=====================================================================================================================
