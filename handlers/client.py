@@ -12,21 +12,29 @@ async def start_handler(message: types.Message):
                            f"Hello {message.from_user.first_name}",
                            reply_markup=start_markup)
     await Bot.send_message(message.from_user.id,
+                           f"___________\n\n"
                            f"Commands: \n"
                            f"/start\n"
                            f"/info\n"
                            f"/quiz\n"
                            f"/mem\n\n"
+                           f"___________\n\n"
                            f"Commands mentors: \n"
-                           f"/reg_mentor\n"
-                           f"/get\n"
-                           f"/all\n"
-                           f"/del\n"
+                           f"/reg_mentor - Регистрация ментора!\n"
+                           f"/get - ...\n"
+                           f"/all - выводит список всех менторов!\n"
+                           f"/del - выводит список по которому можно удалять менторов!\n"
+                           f"___________\n\n"
+                           f'Если напишите "напомни", то вам придёт уведомление об напоминании\n'
+                           f"___________\n\n"
+                           f"Commands chats:\n"
+                           f"!bin - Закрепляет сообащение на которую ответили!\n"
+                           f"___________\n\n"
                            )
 
 
 async def info_handler(message: types.Message):
-    await message.answer("Я вам не гугл!")
+    await message.answer("Гугли!")
 
 
 async def quiz_1(message: types.Message):

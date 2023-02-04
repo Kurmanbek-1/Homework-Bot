@@ -11,7 +11,7 @@ from database.Bot_db import register_message_Bot_db
 async def on_startup(_):
     asyncio.create_task(notification.scheduler())
     await Bot.send_message(chat_id=Admins[0],
-                          text="Bot started!")
+                          text="Бот запущен!")
     sql_create()
 
 #=====================================================================================================================

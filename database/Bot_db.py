@@ -40,8 +40,8 @@ async def sql_command_random_mentors(message : types.Message):
     result = cursor.execute("SELECT * FROM mentors").fetchall()
     user = random.choice(result)
     await message.answer(
-        f"id - {user[0]} \nname - {user[1]} \ndirection - {user[2]} \n"
-        f"age - {user[3]} \ngroup - {user[4]}"
+        f"ID:  {user[0]} \nName:  {user[1]} \nDirection:  {user[2]} \n"
+        f"Age:  {user[3]} \nGroup:  {user[4]}"
     )
 
 async def sql_command_all():

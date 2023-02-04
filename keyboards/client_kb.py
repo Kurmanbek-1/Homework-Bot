@@ -24,11 +24,13 @@ get_mentor = KeyboardButton('/get')
 all_mentor = KeyboardButton('/all')
 del_mentor = KeyboardButton('/del')
 
+notification_button = KeyboardButton('напомни')
+
 # =====================================================================================================================
 
 # Добавление кнопок
 start_markup.add(start_button, info_button, quiz_button, mem_button, share_location, share_contact, reg_mentor,
-                 get_mentor, all_mentor, del_mentor, bin_chats)
+                 get_mentor, all_mentor, del_mentor, bin_chats, notification_button)
 
 # =====================================================================================================================
 submit_markup = ReplyKeyboardMarkup(
